@@ -60,12 +60,16 @@ input[type="checkbox"] { accent-color: var(--accent-strong); }
 .icon-button { width: 32px; padding: 6px; display: grid; place-items: center; }
 .icon-button svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
-.tabs { height: 46px; display: flex; align-items: end; gap: 2px; padding: 0 18px; overflow-x: auto; border-bottom: 1px solid var(--line); background: var(--surface); }
+.tabs { height: 46px; display: flex; align-items: stretch; padding: 0 18px; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--surface); }
+.tab-list { min-width: 0; display: flex; flex: 1; align-items: end; gap: 2px; overflow-x: auto; }
 .tabs button { height: 45px; min-width: 76px; border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: transparent; color: var(--muted); }
 .tabs button:hover { color: var(--text); }
 .tabs button.active { border-bottom-color: var(--accent); color: var(--accent); }
+.tabs-status { min-width: 56px; align-self: center; margin-left: 8px; visibility: hidden; text-align: center; }
+.tabs-status.is-visible { visibility: visible; }
 
 .workspace { min-height: calc(100vh - 104px); display: grid; align-content: start; gap: 12px; padding: 16px 18px 20px; overflow: auto; }
+.app-shell.is-plugin .workspace { min-height: calc(100vh - 46px); }
 .control-bar { min-height: 40px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 4px 0; }
 .control-bar > label:not(.field) { display: flex; align-items: center; gap: 6px; color: var(--muted); }
 .field { display: grid; gap: 4px; color: var(--muted); font-size: 11px; }
@@ -114,6 +118,7 @@ textarea[readonly] { color: var(--text); }
 .diff-row.is-remove .marker { color: var(--danger); }
 
 .center-state { min-height: calc(100vh - 58px); display: flex; align-items: center; justify-content: center; color: var(--muted); }
+.app-shell.is-plugin .center-state { min-height: 100vh; }
 .error-state { flex-direction: column; gap: 5px; padding: 24px; text-align: center; }
 .error-state strong { color: var(--text); }
 
